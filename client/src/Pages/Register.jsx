@@ -11,7 +11,7 @@ export const Register = () => {
     password: "",
   });
 
-  const [errorMessage, setErrorMessage] = useState("");
+  const { API } = useAuth();
 
   const handleInput = (e) => {
     const { name, value } = e.target;
@@ -23,7 +23,7 @@ export const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5000/api/auth/register", {
+      const response = await fetch(`${API}/api/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(user),
@@ -40,12 +40,9 @@ export const Register = () => {
           res_data.extraDetails ? res_data.extraDetails : res_data.message,
           { theme: "dark" }
         );
-        setErrorMessage(res_data.message || "Registration failed");
       }
     } catch (error) {
-      setErrorMessage(
-        "An error occurred during registration. Please try again."
-      );
+     
     }
   };
 
@@ -114,9 +111,7 @@ export const Register = () => {
                       onChange={handleInput}
                     />
                   </div>
-                  {errorMessage && (
-                    <p className="error-message">{errorMessage}</p>
-                  )}
+                  <br />
                   <button type="submit" className="btn btn-submit">
                     Register Now
                   </button>

@@ -13,7 +13,7 @@ export const Contact = () => {
   const [contact, setContact] = useState(defaultSetContact);
 
   const [userData, setUserData] = useState(true);
-  const { user } = useAuth();
+  const { user,API } = useAuth();
 
   useEffect(() => {
     if (userData && user) {
@@ -34,7 +34,7 @@ export const Contact = () => {
 
   const handleForm = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:5000/api/form/contact", {
+    const response = await fetch(`${API}/api/form/contact`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
