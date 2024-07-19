@@ -20,7 +20,6 @@ export const AdminLayout = () => {
     <>
       <div className="full-page">
         <header>
-          {/* <h1 className="container main-heading">Admin Dashboard</h1> */}
           <div className="container options">
             <nav>
               <ul>
