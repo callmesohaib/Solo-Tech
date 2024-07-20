@@ -66,7 +66,7 @@ export const Home = () => {
             <div className="container grid grid-two-cols">
               {/* ------------------------------- Hero-Image -------------------------------  */}
 
-              <div className="hero-image">
+              <div className="hero-image last-pic">
                 <img src="/images/design.png" height="400" width="600" alt="" />
               </div>
               <div className="hero-content">
