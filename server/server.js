@@ -10,9 +10,8 @@ const connect = require("./utils/db");
 const errorMiddleware = require("./middlewares/error-middleware");
 const path = require("path");
 
-
 const Corsoptions = {
-  origin: "http://localhost:5173",
+  // origin: "http://localhost:5173",
   methods: ["GET", "POST", "DELETE","PUT","PATCH"],
   credentials: true,
 };
@@ -33,9 +32,17 @@ app.use(express.static(path.resolve(__dirname, "../client", "dist")));
 app.get("/", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../client", "dist", "index.html"));
 });
+
+const port = 5000;
+
 connect().then(() => {
-  const port = 5000;
+  console.log("Connected to database");
   app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
   });
+}).catch((error) => {
+  console.log("Error While adding database")
 });
+
+// Export the app object for Vercel's serverless function
+module.exports = app;
