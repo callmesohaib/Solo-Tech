@@ -11,7 +11,7 @@ const errorMiddleware = require("./middlewares/error-middleware");
 const path = require("path");
 
 const Corsoptions = {
-  origin: "https://solo-tech-theta.vercel.app/",
+  origin: "https://solo-tech-theta.vercel.app",
   methods: ["GET", "POST", "DELETE","PUT","PATCH"],
   credentials: true,
 };
