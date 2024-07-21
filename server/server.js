@@ -11,7 +11,7 @@ const errorMiddleware = require("./middlewares/error-middleware");
 const path = require("path");
 
 const Corsoptions = {
-  // origin: "http://localhost:5173",
+  origin: "http://localhost:5173",
   methods: ["GET", "POST", "DELETE","PUT","PATCH"],
   credentials: true,
 };
@@ -44,5 +44,4 @@ connect().then(() => {
   console.log("Error While adding database")
 });
 
-// Export the app object for Vercel's serverless function
-module.exports = app;
+// module.exports = app;
