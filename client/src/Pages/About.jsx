@@ -15,7 +15,7 @@ export const About = () => {
                 Welcome
                 {user ? `, ${user.username} to our website` : ` to our website`}
               </p>
-              <h1 className="main-heading">About Us</h1>
+              <h1 className="main-heading">Why Choose Us?</h1>
               <p>A brand for a company is like a reputation for a person.</p>
               <p>
                 We empower businesses with innovative technology that drives
