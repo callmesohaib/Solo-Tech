@@ -3,14 +3,11 @@ const URI = process.env.MONGODB_URI;
 
 const connectdb = async () => {
   try {
-    await mongoose.connect(URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    await mongoose.connect(URI);
     console.log("Database connected");
   } catch (error) {
     console.error("Database connection error:", error.message);
-    process.exit(1);
+    process.exit(1); // Use 1 to indicate an error
   }
 };
 
