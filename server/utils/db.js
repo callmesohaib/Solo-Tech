@@ -3,13 +3,15 @@ const URI = process.env.MONGODB_URI;
 
 const connectdb = async () => {
   try {
-    await mongoose.connect(URI);
+    await mongoose.connect(URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
     console.log("Database connected");
   } catch (error) {
-    console.error("Database connection error");
-    process.exit(0);
+    console.error("Database connection error:", error.message);
+    process.exit(1);
   }
-
 };
 
 module.exports = connectdb;
