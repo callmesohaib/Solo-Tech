@@ -11,7 +11,7 @@ const errorMiddleware = require("./middlewares/error-middleware");
 const path = require("path");
 
 const Corsoptions = {
-  origin: "https://solo-company.vercel.app",
+  origin: "http://localhost:5173",
   methods: ["GET", "POST", "DELETE","PUT","PATCH"],
   credentials: true,
 };
