@@ -11,8 +11,8 @@ const errorMiddleware = require("./middlewares/error-middleware");
 const path = require("path");
 
 const Corsoptions = {
-  origin: "https://solo-tech-theta.vercel.app",
-  methods: ["GET", "POST", "DELETE","PUT","PATCH"],
+  origin: ["https://solo-tech-theta.vercel.app", "http://localhost:5173"],
+  methods: ["GET", "POST", "DELETE", "PUT", "PATCH"],
   credentials: true,
 };
 
@@ -35,13 +35,15 @@ app.get("/", (req, res) => {
 
 const port = 5000;
 
-connect().then(() => {
-  console.log("Connected to database");
-  app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
+connect()
+  .then(() => {
+    console.log("Connected to database");
+    app.listen(port, () => {
+      console.log(`Server is running on port ${port}`);
+    });
+  })
+  .catch((error) => {
+    console.log("Error While adding database");
   });
-}).catch((error) => {
-  console.log("Error While adding database")
-});
 
 module.exports = app;
