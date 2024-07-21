@@ -44,4 +44,4 @@ connect().then(() => {
   console.log("Error While adding database")
 });
 
-// module.exports = app;
+module.exports = app;

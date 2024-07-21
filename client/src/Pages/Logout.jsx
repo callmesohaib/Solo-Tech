@@ -5,9 +5,11 @@ import { useAuth } from "../store/auth";
 export const Logout = () => {
   const { LogoutUser } = useAuth();
   const navigate = useNavigate();
+
   useEffect(() => {
     LogoutUser();
-  }, [LogoutUser]);
+    navigate("/login");
+  }, [LogoutUser, navigate]);
 
-  return navigate("/login");
+  return null;
 };
