@@ -4,7 +4,6 @@ import { useAuth } from "../store/auth";
 export const AdminContacts = () => {
   const [contacts, setContacts] = useState([]);
   const { authorizationToken ,API} = useAuth();
-
   const getAllContactsData = async () => {
     try {
       const response = await fetch(`${API}/api/admin/contacts`, {
